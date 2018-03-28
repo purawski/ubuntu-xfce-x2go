@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --force-yes\
-       curl gnupg apt-utils software-properties-common \
+       man curl gnupg apt-utils software-properties-common \
     && curl -O https://dl-ssl.google.com/linux/linux_signing_key.pub \
     && apt-key add linux_signing_key.pub \
     && rm linux_signing_key.pub \
@@ -23,6 +23,7 @@ RUN apt-get update \
     #&& rm pkg-mozilla-archive-keyring_1.1_all.deb \
     && apt-get update \
     && apt-get install -y --force-yes\
+        xubuntu-desktop \
         sudo \
         bash-completion \
         vim git \
@@ -39,7 +40,9 @@ RUN apt-get update \
         pelican \
         wget \
         remmina \
-	xterm \
+        gdebi \
+    	xterm \
+        x2goserver \
 #	software-properties-common \
 #        docker-ce \
 #        code \
@@ -49,9 +52,9 @@ RUN apt-get update \
 RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_amd64.deb
 RUN dpkg -i code_amd64.deb \
     && rm code_amd64.deb \
-    && curl http://download.nomachine.com/download/6.0/Linux/nomachine_6.0.78_1_amd64.deb -o /nomachine.deb \
-    && dpkg -i /nomachine.deb \
-    && rm /nomachine.deb \
+#    && curl http://download.nomachine.com/download/6.0/Linux/nomachine_6.0.78_1_amd64.deb -o /nomachine.deb \
+#    && dpkg -i /nomachine.deb \
+#    && rm /nomachine.deb \
 #    && apt-get udate \
 #    && apt-get install docker-ce\
     && mkdir /root/.config \
