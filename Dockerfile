@@ -61,7 +61,7 @@ RUN dpkg -i code_amd64.deb \
     && mkdir /root/.config \
     && apt-get autoremove \
     && apt-get autoclean 
-
+RUN echo X2GO_NXAGENT_DEFAULT_OPTIONS+=\" -extension BIG-REQUESTS\" >> /etc/x2go/x2goagent.options
 EXPOSE 22 4000
 
 COPY config /root/.config
