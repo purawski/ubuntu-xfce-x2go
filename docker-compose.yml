@@ -2,11 +2,12 @@ version: '2.3'
 services:
  xubuntu:
   hostname: xubuntu.urawski.com
-  image: uraf/ubuntu-xfce-nxserver
+  image: uraf/ubuntu-xfce-x2go
   restart: always
   dns_search: urawski.com
   ports:
    - 4000:4000/tcp
+   - 2222:22/tcp
   environment:
   - DOCKER_USER=uraf
   - DOCKER_PASSWORD=uraf
