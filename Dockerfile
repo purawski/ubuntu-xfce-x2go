@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:17.10
 ENV DEBIAN_FRONTEND=noninteractive
 
 
@@ -9,6 +9,7 @@ RUN apt-get update \
     && curl -O https://dl-ssl.google.com/linux/linux_signing_key.pub \
     && apt-key add linux_signing_key.pub \
     && rm linux_signing_key.pub \
+    && add-apt-repository ppa:x2go/stable \
 #    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 #    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 
@@ -23,7 +24,7 @@ RUN apt-get update \
     #&& rm pkg-mozilla-archive-keyring_1.1_all.deb \
     && apt-get update \
     && apt-get install -y --force-yes\
-        xubuntu-desktop \
+#        xubuntu-desktop \
         sudo \
         bash-completion \
         vim git \
@@ -42,7 +43,7 @@ RUN apt-get update \
         remmina \
         gdebi \
     	xterm \
-        x2goserver \
+        x2goserver x2goserver-xsession pwgen\
 #	software-properties-common \
 #        docker-ce \
 #        code \
