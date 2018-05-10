@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 
@@ -9,7 +9,7 @@ RUN apt-get update \
     && curl -O https://dl-ssl.google.com/linux/linux_signing_key.pub \
     && apt-key add linux_signing_key.pub \
     && rm linux_signing_key.pub \
-    && add-apt-repository ppa:x2go/stable \
+#    && add-apt-repository ppa:x2go/stable \
 #    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 #    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 
@@ -25,6 +25,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --force-yes\
 #        xubuntu-desktop \
+        libgconf-2-4 \
         sudo \
         bash-completion \
         vim git \
