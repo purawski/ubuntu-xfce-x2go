@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 
@@ -9,7 +9,7 @@ RUN apt-get update \
     && curl -O https://dl-ssl.google.com/linux/linux_signing_key.pub \
     && apt-key add linux_signing_key.pub \
     && rm linux_signing_key.pub \
-#    && add-apt-repository ppa:x2go/stable \
+    && add-apt-repository ppa:x2go/stable \
 #    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 #    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 
@@ -30,6 +30,7 @@ RUN apt-get update \
         bash-completion \
         vim git \
 	net-tools \
+    iproute2 \
 	inetutils-ping \
 	openssh-server \
         cups \
@@ -49,6 +50,7 @@ RUN apt-get update \
 #        docker-ce \
 #        code \
     && rm /etc/apt/sources.list.d/google.list 
+#    && apt-get upgrade -y 
 #RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_1.18.0-1510145176_amd64.deb 
 #RUN dpkg -i code_1.18.0-1510145176_amd64.deb \
 RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_amd64.deb
