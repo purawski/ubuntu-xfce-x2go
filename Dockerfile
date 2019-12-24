@@ -1,6 +1,7 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 
+COPY proxy.conf /etc/apt/apt.conf.d/
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -53,9 +54,9 @@ RUN apt-get update \
 #    && apt-get upgrade -y 
 #RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_1.18.0-1510145176_amd64.deb 
 #RUN dpkg -i code_1.18.0-1510145176_amd64.deb \
-RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_amd64.deb
-RUN dpkg -i code_amd64.deb \
-    && rm code_amd64.deb \
+#RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o code_amd64.deb
+#RUN dpkg -i code_amd64.deb \
+#    && rm code_amd64.deb \
 #    && curl http://download.nomachine.com/download/6.0/Linux/nomachine_6.0.78_1_amd64.deb -o /nomachine.deb \
 #    && dpkg -i /nomachine.deb \
 #    && rm /nomachine.deb \
